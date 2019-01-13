@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Package Reference &mdash; Python Minifier 1.1.0 documentation</title>
+  <title>Package Reference &mdash; Python Minifier 2.0.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                1.1.0
+                2.0.0
               </div>
             
           
@@ -158,7 +158,7 @@
 a ‘minified’ representation of the same source code.</p>
 <dl class="function">
 <dt id="python_minifier.minify">
-<code class="descclassname">python_minifier.</code><code class="descname">minify</code><span class="sig-paren">(</span><em>source</em>, <em>filename=None</em>, <em>remove_annotations=True</em>, <em>remove_pass=True</em>, <em>remove_literal_statements=False</em>, <em>combine_imports=True</em>, <em>hoist_literals=True</em><span class="sig-paren">)</span><a class="headerlink" href="#python_minifier.minify" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">python_minifier.</code><code class="descname">minify</code><span class="sig-paren">(</span><em>source</em>, <em>filename=None</em>, <em>remove_annotations=True</em>, <em>remove_pass=True</em>, <em>remove_literal_statements=False</em>, <em>combine_imports=True</em>, <em>hoist_literals=True</em>, <em>rename_locals=True</em>, <em>preserve_locals=None</em>, <em>rename_globals=False</em>, <em>preserve_globals=None</em><span class="sig-paren">)</span><a class="headerlink" href="#python_minifier.minify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minify a python module</p>
 <p>The module is transformed according the the arguments.
 If all transformation arguments are False, no transformations are made to the AST, the returned string will
@@ -176,6 +176,10 @@ parse into exactly the same module.</p>
 <li><strong>remove_literal_statements</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If statements consisting of a single literal should be removed, including docstrings</li>
 <li><strong>combine_imports</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Combine adjacent import statements where possible</li>
 <li><strong>hoist_literals</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If str and byte literals may be hoisted to the module level where possible.</li>
+<li><strong>rename_locals</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If local names may be shortened</li>
+<li><strong>preserve_locals</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>]</em>) – Locals names to leave unchanged when rename_locals is True</li>
+<li><strong>rename_globals</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If global names may be shortened</li>
+<li><strong>preserve_globals</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>]</em>) – Global names to leave unchanged when rename_globals is True</li>
 </ul>
 </td>
 </tr>
@@ -188,7 +192,7 @@ parse into exactly the same module.</p>
 
 <dl class="function">
 <dt id="python_minifier.awslambda">
-<code class="descclassname">python_minifier.</code><code class="descname">awslambda</code><span class="sig-paren">(</span><em>source</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#python_minifier.awslambda" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">python_minifier.</code><code class="descname">awslambda</code><span class="sig-paren">(</span><em>source</em>, <em>filename=None</em>, <em>entrypoint=None</em><span class="sig-paren">)</span><a class="headerlink" href="#python_minifier.awslambda" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minify a python module for use as an AWS Lambda function</p>
 <p>This returns a string suitable for embedding in a cloudformation template.
 When minifying, all transformations are enabled.</p>
@@ -199,6 +203,7 @@ When minifying, all transformations are enabled.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>source</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The python module source code</li>
 <li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The original source filename if known</li>
+<li><strong>entrypoint</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em> or </em><em>NoneType</em>) – The lambda entrypoint function</li>
 </ul>
 </td>
 </tr>
@@ -260,7 +265,7 @@ This should never occur and is a bug.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Daniel Flook.
+        &copy; Copyright 2018, Daniel Flook
 
     </p>
   </div>
@@ -279,20 +284,14 @@ This should never occur and is a bug.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
 
   
 

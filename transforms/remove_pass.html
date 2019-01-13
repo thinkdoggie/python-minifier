@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Remove Pass &mdash; Python Minifier 1.1.0 documentation</title>
+  <title>Remove Pass &mdash; Python Minifier 2.0.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                1.1.0
+                2.0.0
               </div>
             
           
@@ -90,7 +90,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Transforms</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="combine_imports.html">Combine Imports</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Remove Pass</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#input">Input</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
 </ul>
@@ -98,8 +98,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="hoist_literals.html">Hoist Literals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="remove_literal_statements.html">Remove Literal Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_annotations.html">Remove Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rename_locals.html">Rename locals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remove_literal_statements.html">Remove Literal Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rename_globals.html">Rename globals</a></li>
 </ul>
 </li>
 </ul>
@@ -175,8 +177,8 @@ it is replaced by a literal zero expression statement.</p>
 <p>This transform is always safe to use and enabled by default.</p>
 <p>Disable this source transformation by passing the <code class="docutils literal notranslate"><span class="pre">remove_pass=False</span></code> argument to the <a class="reference internal" href="../api_usage.html#python_minifier.minify" title="python_minifier.minify"><code class="xref py py-func docutils literal notranslate"><span class="pre">python_minifier.minify()</span></code></a> function,
 or passing <code class="docutils literal notranslate"><span class="pre">--no-remove-pass</span></code> to the pyminify command.</p>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="input">
 <h3>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
@@ -189,8 +191,7 @@ or passing <code class="docutils literal notranslate"><span class="pre">--no-rem
 </div>
 <div class="section" id="output">
 <h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">():</span><span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">():</span><span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -217,7 +218,7 @@ or passing <code class="docutils literal notranslate"><span class="pre">--no-rem
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Daniel Flook.
+        &copy; Copyright 2018, Daniel Flook
 
     </p>
   </div>
@@ -236,20 +237,14 @@ or passing <code class="docutils literal notranslate"><span class="pre">--no-rem
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
 
   
 

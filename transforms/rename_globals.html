@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Remove Literal Statements &mdash; Python Minifier 2.0.0 documentation</title>
+  <title>Rename globals &mdash; Python Minifier 2.0.0 documentation</title>
   
 
   
@@ -28,8 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Rename globals" href="rename_globals.html" />
-    <link rel="prev" title="Rename locals" href="rename_locals.html" /> 
+    <link rel="prev" title="Remove Literal Statements" href="remove_literal_statements.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -93,7 +92,8 @@
 <li class="toctree-l2"><a class="reference internal" href="hoist_literals.html">Hoist Literals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_annotations.html">Remove Annotations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rename_locals.html">Rename locals</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Remove Literal Statements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="remove_literal_statements.html">Remove Literal Statements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Rename globals</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#input">Input</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
@@ -101,7 +101,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rename_globals.html">Rename globals</a></li>
 </ul>
 </li>
 </ul>
@@ -151,13 +150,13 @@
         
           <li><a href="index.html">Transforms</a> &raquo;</li>
         
-      <li>Remove Literal Statements</li>
+      <li>Rename globals</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/transforms/remove_literal_statements.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/transforms/rename_globals.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -170,33 +169,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="remove-literal-statements">
-<h1>Remove Literal Statements<a class="headerlink" href="#remove-literal-statements" title="Permalink to this headline">¶</a></h1>
-<p>This transform removes statements that consist entirely of a literal value. This includes docstrings.
-If a statement is required, it is replaced by a literal zero expression statement.</p>
-<p>This transform will strip docstrings from the source. If the module uses the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> name the module docstring will
-be retained.</p>
-<p>This transform is disabled by default. Enable by passing the <code class="docutils literal notranslate"><span class="pre">remove_literal_statements=True</span></code> argument to the <a class="reference internal" href="../api_usage.html#python_minifier.minify" title="python_minifier.minify"><code class="xref py py-func docutils literal notranslate"><span class="pre">python_minifier.minify()</span></code></a> function,
-or passing <code class="docutils literal notranslate"><span class="pre">--remove_literal_statements</span></code> to the pyminify command.</p>
+  <div class="section" id="rename-globals">
+<h1>Rename globals<a class="headerlink" href="#rename-globals" title="Permalink to this headline">¶</a></h1>
+<p>This transform shortens names in the module scope. This includes introducing short names for builtins.</p>
+<p>This could break any program that imports the minified module. For this reason the transform is disabled by
+default.</p>
+<p>When enabled, all global names may be renamed if it is space efficient. This includes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Global variables</li>
+<li>Global import aliases</li>
+<li>Global function names</li>
+<li>Global class names</li>
+<li>Builtin names may be bound to a new name in the module scope</li>
+</ul>
+</div></blockquote>
+<p>Renaming is prevented by:</p>
+<blockquote>
+<div><ul class="simple">
+<li>If <code class="docutils literal notranslate"><span class="pre">eval()</span></code>, <code class="docutils literal notranslate"><span class="pre">exec()</span></code>, <code class="docutils literal notranslate"><span class="pre">locals()</span></code>, <code class="docutils literal notranslate"><span class="pre">globals()</span></code>, <code class="docutils literal notranslate"><span class="pre">vars()</span></code> are used, renaming is disabled</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">*</span></code> is used in the module, renaming is disabled</li>
+<li>If a name is included as a literal string in <code class="docutils literal notranslate"><span class="pre">__all__</span></code>, renaming of that name is disabled</li>
+<li>Any name listed in the <code class="docutils literal notranslate"><span class="pre">preserve_globals</span></code> argument</li>
+</ul>
+</div></blockquote>
+<p>Enable this source transformation by passing the <code class="docutils literal notranslate"><span class="pre">rename_globals=True</span></code> argument to the <a class="reference internal" href="../api_usage.html#python_minifier.minify" title="python_minifier.minify"><code class="xref py py-func docutils literal notranslate"><span class="pre">python_minifier.minify()</span></code></a>
+function. The <code class="docutils literal notranslate"><span class="pre">preserve_globals</span></code> argument is a list of names to disable renaming for.</p>
+<p>When using the pyminify command enable this transformation with <code class="docutils literal notranslate"><span class="pre">--rename-globals</span></code>. The <code class="docutils literal notranslate"><span class="pre">--preserve_globals</span></code> option
+may be a comma separated list of names to prevent renaming.</p>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="input">
 <h3>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;This is my module docstring&quot;&quot;&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
 
-<span class="s1">&#39;This is another string that has no runtime effect&#39;</span>
-<span class="sa">b</span><span class="s1">&#39;Bytes literal&#39;</span>
-<span class="mi">0</span>
-<span class="mi">1000</span>
+<span class="n">my_counter</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-    <span class="s1">&#39;Function docstring&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Contents:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">my_counter</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="output">
 <h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">():</span><span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">=</span><span class="k">print</span>
+<span class="kn">import</span> <span class="nn">collections</span> <span class="kn">as</span> <span class="nn">A</span>
+<span class="n">B</span><span class="o">=</span><span class="n">A</span><span class="o">.</span><span class="n">Counter</span><span class="p">([</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
+<span class="n">C</span><span class="p">(</span><span class="s1">&#39;Contents:&#39;</span><span class="p">)</span>
+<span class="n">C</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -211,10 +231,8 @@ or passing <code class="docutils literal notranslate"><span class="pre">--remove
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rename_globals.html" class="btn btn-neutral float-right" title="Rename globals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="rename_locals.html" class="btn btn-neutral" title="Rename locals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="remove_literal_statements.html" class="btn btn-neutral" title="Remove Literal Statements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
