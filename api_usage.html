@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Package Reference &mdash; Python Minifier 2.0.1.dev2+g4e1c270 documentation</title>
+  <title>Package Reference &mdash; Python Minifier 2.1.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1.0
               </div>
             
           
@@ -158,7 +158,7 @@
 a ‘minified’ representation of the same source code.</p>
 <dl class="function">
 <dt id="python_minifier.minify">
-<code class="descclassname">python_minifier.</code><code class="descname">minify</code><span class="sig-paren">(</span><em>source</em>, <em>filename=None</em>, <em>remove_annotations=True</em>, <em>remove_pass=True</em>, <em>remove_literal_statements=False</em>, <em>combine_imports=True</em>, <em>hoist_literals=True</em>, <em>rename_locals=True</em>, <em>preserve_locals=None</em>, <em>rename_globals=False</em>, <em>preserve_globals=None</em><span class="sig-paren">)</span><a class="headerlink" href="#python_minifier.minify" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">python_minifier.</code><code class="descname">minify</code><span class="sig-paren">(</span><em>source</em>, <em>filename=None</em>, <em>remove_annotations=True</em>, <em>remove_pass=True</em>, <em>remove_literal_statements=False</em>, <em>combine_imports=True</em>, <em>hoist_literals=True</em>, <em>rename_locals=True</em>, <em>preserve_locals=None</em>, <em>rename_globals=False</em>, <em>preserve_globals=None</em>, <em>remove_object_base=True</em><span class="sig-paren">)</span><a class="headerlink" href="#python_minifier.minify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minify a python module</p>
 <p>The module is transformed according the the arguments.
 If all transformation arguments are False, no transformations are made to the AST, the returned string will
@@ -180,6 +180,7 @@ parse into exactly the same module.</p>
 <li><strong>preserve_locals</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>]</em>) – Locals names to leave unchanged when rename_locals is True</li>
 <li><strong>rename_globals</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If global names may be shortened</li>
 <li><strong>preserve_globals</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>]</em>) – Global names to leave unchanged when rename_globals is True</li>
+<li><strong>remove_object_base</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If object as a base class may be removed</li>
 </ul>
 </td>
 </tr>

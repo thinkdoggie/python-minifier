@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rename locals &mdash; Python Minifier 2.0.1.dev2+g4e1c270 documentation</title>
+  <title>Rename Locals &mdash; Python Minifier 2.1.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Remove Literal Statements" href="remove_literal_statements.html" />
+    <link rel="next" title="Remove Object Base" href="remove_object_base.html" />
     <link rel="prev" title="Remove Annotations" href="remove_annotations.html" /> 
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1.0
               </div>
             
           
@@ -92,7 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="remove_pass.html">Remove Pass</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hoist_literals.html">Hoist Literals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_annotations.html">Remove Annotations</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Rename locals</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Rename Locals</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#input">Input</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
@@ -100,8 +100,9 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="remove_object_base.html">Remove Object Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_literal_statements.html">Remove Literal Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rename_globals.html">Rename globals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rename_globals.html">Rename Globals</a></li>
 </ul>
 </li>
 </ul>
@@ -151,7 +152,7 @@
         
           <li><a href="index.html">Transforms</a> &raquo;</li>
         
-      <li>Rename locals</li>
+      <li>Rename Locals</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -171,7 +172,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rename-locals">
-<h1>Rename locals<a class="headerlink" href="#rename-locals" title="Permalink to this headline">¶</a></h1>
+<h1>Rename Locals<a class="headerlink" href="#rename-locals" title="Permalink to this headline">¶</a></h1>
 <p>This transform shortens any non-global names.</p>
 <p>This transform is almost always safe to use and enabled by default.</p>
 <p>When enabled all non-global names may be renamed if it is space efficient and safe to do so. This includes:</p>
@@ -242,7 +243,7 @@ will disable this transform, as it usually indicates usage of names that this tr
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="remove_literal_statements.html" class="btn btn-neutral float-right" title="Remove Literal Statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="remove_object_base.html" class="btn btn-neutral float-right" title="Remove Object Base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="remove_annotations.html" class="btn btn-neutral" title="Remove Annotations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

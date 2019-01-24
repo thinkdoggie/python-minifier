@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Command Usage &mdash; Python Minifier 2.0.1.dev2+g4e1c270 documentation</title>
+  <title>Command Usage &mdash; Python Minifier 2.1.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.0.1
+                2.1.0
               </div>
             
           
@@ -160,7 +160,8 @@ It can be used to minify python files, and outputs the result to stdout.</p>
                 [--remove-literal-statements] [--no-remove-annotations]
                 [--no-hoist-literals] [--no-rename-locals]
                 [--preserve-locals PRESERVE_LOCALS] [--rename-globals]
-                [--preserve-globals PRESERVE_GLOBALS] [-v]
+                [--preserve-globals PRESERVE_GLOBALS]
+                [--no-remove-object-base] [-v]
                 path
 
 Minify Python source
@@ -187,6 +188,8 @@ optional arguments:
   --preserve-globals PRESERVE_GLOBALS
                         Comma separated list of global names that will not be
                         shortened
+  --no-remove-object-base
+                        Disable removing object from base class list
   -v, --version         show program&#39;s version number and exit
 </pre></div>
 </div>
