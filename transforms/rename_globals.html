@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rename Globals &mdash; Python Minifier 2.1.2.dev1+g06ec506 documentation</title>
+  <title>Rename Globals &mdash; Python Minifier 2.1.2 documentation</title>
   
 
   
@@ -180,20 +180,20 @@ default.</p>
 <p>When enabled, all global names may be renamed if it is space efficient. This includes:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Global variables</li>
-<li>Global import aliases</li>
-<li>Global function names</li>
-<li>Global class names</li>
-<li>Builtin names may be bound to a new name in the module scope</li>
+<li><p>Global variables</p></li>
+<li><p>Global import aliases</p></li>
+<li><p>Global function names</p></li>
+<li><p>Global class names</p></li>
+<li><p>Builtin names may be bound to a new name in the module scope</p></li>
 </ul>
 </div></blockquote>
 <p>Renaming is prevented by:</p>
 <blockquote>
 <div><ul class="simple">
-<li>If <code class="docutils literal notranslate"><span class="pre">eval()</span></code>, <code class="docutils literal notranslate"><span class="pre">exec()</span></code>, <code class="docutils literal notranslate"><span class="pre">locals()</span></code>, <code class="docutils literal notranslate"><span class="pre">globals()</span></code>, <code class="docutils literal notranslate"><span class="pre">vars()</span></code> are used, renaming is disabled</li>
-<li>If <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">*</span></code> is used in the module, renaming is disabled</li>
-<li>If a name is included as a literal string in <code class="docutils literal notranslate"><span class="pre">__all__</span></code>, renaming of that name is disabled</li>
-<li>Any name listed in the <code class="docutils literal notranslate"><span class="pre">preserve_globals</span></code> argument</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">eval()</span></code>, <code class="docutils literal notranslate"><span class="pre">exec()</span></code>, <code class="docutils literal notranslate"><span class="pre">locals()</span></code>, <code class="docutils literal notranslate"><span class="pre">globals()</span></code>, <code class="docutils literal notranslate"><span class="pre">vars()</span></code> are used, renaming is disabled</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">*</span></code> is used in the module, renaming is disabled</p></li>
+<li><p>If a name is included as a literal string in <code class="docutils literal notranslate"><span class="pre">__all__</span></code>, renaming of that name is disabled</p></li>
+<li><p>Any name listed in the <code class="docutils literal notranslate"><span class="pre">preserve_globals</span></code> argument</p></li>
 </ul>
 </div></blockquote>
 <p>Enable this source transformation by passing the <code class="docutils literal notranslate"><span class="pre">rename_globals=True</span></code> argument to the <a class="reference internal" href="../api_usage.html#python_minifier.minify" title="python_minifier.minify"><code class="xref py py-func docutils literal notranslate"><span class="pre">python_minifier.minify()</span></code></a>

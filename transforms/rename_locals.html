@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rename Locals &mdash; Python Minifier 2.1.2.dev1+g06ec506 documentation</title>
+  <title>Rename Locals &mdash; Python Minifier 2.1.2 documentation</title>
   
 
   
@@ -180,22 +180,22 @@
 <p>When enabled all non-global names may be renamed if it is space efficient and safe to do so. This includes:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Local variables</li>
-<li>Functions in function scope</li>
-<li>Classes in function scope</li>
-<li>Local imports</li>
-<li>Comprehension target names</li>
-<li>Function arguments that are not typically referenced by the caller (<cite>self</cite>, <cite>cls</cite>, <cite>args</cite>, <cite>kwargs</cite>)</li>
-<li>Function arguments may be bound with a new name in the function body, without changing the function signature</li>
-<li>Exception handler target names</li>
+<li><p>Local variables</p></li>
+<li><p>Functions in function scope</p></li>
+<li><p>Classes in function scope</p></li>
+<li><p>Local imports</p></li>
+<li><p>Comprehension target names</p></li>
+<li><p>Function arguments that are not typically referenced by the caller (<cite>self</cite>, <cite>cls</cite>, <cite>args</cite>, <cite>kwargs</cite>)</p></li>
+<li><p>Function arguments may be bound with a new name in the function body, without changing the function signature</p></li>
+<li><p>Exception handler target names</p></li>
 </ul>
 </div></blockquote>
 <p>This will not change:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Global names</li>
-<li>Names in class scope</li>
-<li>Lambda function arguments (except args and kwargs)</li>
+<li><p>Global names</p></li>
+<li><p>Names in class scope</p></li>
+<li><p>Lambda function arguments (except args and kwargs)</p></li>
 </ul>
 </div></blockquote>
 <p>New names are assigned according to the smallest minified result. To conserve the pool of available shortest names
