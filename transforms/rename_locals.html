@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rename Locals &mdash; Python Minifier 2.1.2 documentation</title>
+  <title>Rename Locals &mdash; Python Minifier 2.2.0 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                2.1.2
+                2.2.0
               </div>
             
           
@@ -226,7 +226,7 @@ will disable this transform, as it usually indicates usage of names that this tr
 <div class="section" id="output">
 <h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rename_locals_example</span><span class="p">(</span><span class="n">module</span><span class="p">,</span><span class="n">another_argument</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">third_argument</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-	<span class="n">B</span><span class="o">=</span><span class="n">module</span><span class="p">;</span><span class="n">A</span><span class="o">=</span><span class="n">third_argument</span>
+	<span class="n">B</span><span class="o">=</span><span class="n">module</span><span class="p">;</span> <span class="n">A</span><span class="o">=</span><span class="n">third_argument</span>
 	<span class="k">if</span> <span class="n">A</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span><span class="n">A</span><span class="o">=</span><span class="p">[]</span>
 	<span class="n">A</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 	<span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">B</span><span class="o">.</span><span class="n">things</span><span class="p">:</span>
