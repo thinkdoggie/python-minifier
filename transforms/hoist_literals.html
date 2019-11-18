@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hoist Literals &mdash; Python Minifier 2.2.2.dev1+gb04b319 documentation</title>
+  <title>Hoist Literals &mdash; Python Minifier 2.3.1.dev1+g3e85bb1 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                2.2.2
+                2.3.1
               </div>
             
           
@@ -103,6 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="remove_annotations.html">Remove Annotations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rename_locals.html">Rename Locals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_object_base.html">Remove Object Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert_posargs_to_args.html">Convert Positional Argument to Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_literal_statements.html">Remove Literal Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rename_globals.html">Rename Globals</a></li>
 </ul>
@@ -242,8 +243,8 @@ or passing <code class="docutils literal notranslate"><span class="pre">--no-hoi
 			<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">certificate</span><span class="p">[</span><span class="s1">&#39;DomainValidationOptions&#39;</span><span class="p">]:</span>
 				<span class="k">if</span> <span class="n">E</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">A</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span><span class="n">all_records_created</span><span class="o">=</span><span class="n">C</span><span class="p">;</span><span class="k">continue</span>
 				<span class="n">records</span><span class="o">=</span><span class="p">[]</span>
-				<span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="n">E</span><span class="p">]</span><span class="o">==</span><span class="n">D</span><span class="p">:</span><span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;Action&#39;</span><span class="p">:</span><span class="s1">&#39;UPSERT&#39;</span><span class="p">,</span><span class="s1">&#39;ResourceRecordSet&#39;</span><span class="p">:{</span><span class="n">F</span><span class="p">:</span><span class="n">v</span><span class="p">[</span><span class="n">A</span><span class="p">][</span><span class="n">F</span><span class="p">],</span> <span class="n">G</span><span class="p">:</span><span class="n">v</span><span class="p">[</span><span class="n">A</span><span class="p">][</span><span class="n">G</span><span class="p">],</span><span class="s1">&#39;TTL&#39;</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span><span class="s1">&#39;ResourceRecords&#39;</span><span class="p">:[{</span><span class="n">H</span><span class="p">:</span><span class="n">v</span><span class="p">[</span><span class="n">A</span><span class="p">][</span><span class="n">H</span><span class="p">]}]}})</span>
-				<span class="k">if</span> <span class="n">records</span><span class="p">:</span><span class="n">response</span><span class="o">=</span><span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;route53&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">change_resource_record_sets</span><span class="p">(</span><span class="n">HostedZoneId</span><span class="o">=</span><span class="n">get_zone_for</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;DomainName&#39;</span><span class="p">],</span> <span class="n">props</span><span class="p">),</span><span class="n">ChangeBatch</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Comment&#39;</span><span class="p">:</span><span class="s1">&#39;Domain validation for </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">arn</span><span class="p">,</span><span class="s1">&#39;Changes&#39;</span><span class="p">:</span><span class="n">records</span><span class="p">})</span>
+				<span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="n">E</span><span class="p">]</span><span class="o">==</span><span class="n">D</span><span class="p">:</span><span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;Action&#39;</span><span class="p">:</span><span class="s1">&#39;UPSERT&#39;</span><span class="p">,</span><span class="s1">&#39;ResourceRecordSet&#39;</span><span class="p">:{</span><span class="n">F</span><span class="p">:</span><span class="n">v</span><span class="p">[</span><span class="n">A</span><span class="p">][</span><span class="n">F</span><span class="p">],</span><span class="n">G</span><span class="p">:</span><span class="n">v</span><span class="p">[</span><span class="n">A</span><span class="p">][</span><span class="n">G</span><span class="p">],</span><span class="s1">&#39;TTL&#39;</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span><span class="s1">&#39;ResourceRecords&#39;</span><span class="p">:[{</span><span class="n">H</span><span class="p">:</span><span class="n">v</span><span class="p">[</span><span class="n">A</span><span class="p">][</span><span class="n">H</span><span class="p">]}]}})</span>
+				<span class="k">if</span> <span class="n">records</span><span class="p">:</span><span class="n">response</span><span class="o">=</span><span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;route53&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">change_resource_record_sets</span><span class="p">(</span><span class="n">HostedZoneId</span><span class="o">=</span><span class="n">get_zone_for</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;DomainName&#39;</span><span class="p">],</span><span class="n">props</span><span class="p">),</span><span class="n">ChangeBatch</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Comment&#39;</span><span class="p">:</span><span class="s1">&#39;Domain validation for </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">arn</span><span class="p">,</span><span class="s1">&#39;Changes&#39;</span><span class="p">:</span><span class="n">records</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>

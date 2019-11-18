@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Package Reference &mdash; Python Minifier 2.2.2.dev1+gb04b319 documentation</title>
+  <title>Package Reference &mdash; Python Minifier 2.3.1.dev1+g3e85bb1 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                2.2.2
+                2.3.1
               </div>
             
           
@@ -160,7 +160,7 @@
 a ‘minified’ representation of the same source code.</p>
 <dl class="function">
 <dt id="python_minifier.minify">
-<code class="descclassname">python_minifier.</code><code class="descname">minify</code><span class="sig-paren">(</span><em>source</em>, <em>filename=None</em>, <em>remove_annotations=True</em>, <em>remove_pass=True</em>, <em>remove_literal_statements=False</em>, <em>combine_imports=True</em>, <em>hoist_literals=True</em>, <em>rename_locals=True</em>, <em>preserve_locals=None</em>, <em>rename_globals=False</em>, <em>preserve_globals=None</em>, <em>remove_object_base=True</em><span class="sig-paren">)</span><a class="headerlink" href="#python_minifier.minify" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">python_minifier.</code><code class="descname">minify</code><span class="sig-paren">(</span><em>source</em>, <em>filename=None</em>, <em>remove_annotations=True</em>, <em>remove_pass=True</em>, <em>remove_literal_statements=False</em>, <em>combine_imports=True</em>, <em>hoist_literals=True</em>, <em>rename_locals=True</em>, <em>preserve_locals=None</em>, <em>rename_globals=False</em>, <em>preserve_globals=None</em>, <em>remove_object_base=True</em>, <em>convert_posargs_to_args=True</em><span class="sig-paren">)</span><a class="headerlink" href="#python_minifier.minify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minify a python module</p>
 <p>The module is transformed according the the arguments.
 If all transformation arguments are False, no transformations are made to the AST, the returned string will
