@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Convert Positional Argument to Arguments &mdash; Python Minifier 2.3.1.dev1+g3e85bb1 documentation</title>
+  <title>Convert Positional-Only Argument to Arguments &mdash; Python Minifier 2.3.1.dev2+g452c64e documentation</title>
   
 
   
@@ -96,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="remove_annotations.html">Remove Annotations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rename_locals.html">Rename Locals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_object_base.html">Remove Object Base</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Convert Positional Argument to Arguments</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Convert Positional-Only Argument to Arguments</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#input">Input</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
@@ -155,7 +155,7 @@
         
           <li><a href="index.html">Transforms</a> &raquo;</li>
         
-      <li>Convert Positional Argument to Arguments</li>
+      <li>Convert Positional-Only Argument to Arguments</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -174,9 +174,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="convert-positional-argument-to-arguments">
-<h1>Convert Positional Argument to Arguments<a class="headerlink" href="#convert-positional-argument-to-arguments" title="Permalink to this headline">¶</a></h1>
-<p>This transform converts positional only arguments into normal arguments by removing the ‘/’ separator in the
+  <div class="section" id="convert-positional-only-argument-to-arguments">
+<h1>Convert Positional-Only Argument to Arguments<a class="headerlink" href="#convert-positional-only-argument-to-arguments" title="Permalink to this headline">¶</a></h1>
+<p>This transform converts positional-only arguments into normal arguments by removing the ‘/’ separator in the
 argument list.</p>
 <p>This transform is almost always safe to use and enabled by default.</p>
 <p>Disable this source transformation by passing the <code class="docutils literal notranslate"><span class="pre">convert_posargs_to_args=False</span></code> argument to the <a class="reference internal" href="../api_usage.html#python_minifier.minify" title="python_minifier.minify"><code class="xref py py-func docutils literal notranslate"><span class="pre">python_minifier.minify()</span></code></a> function,
